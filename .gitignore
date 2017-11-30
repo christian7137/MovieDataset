@@ -2,3 +2,6 @@
 # Probably just ignore a data directory
 data/*.csv
 .ipynb_checkpoints
+
+# Don't ignore the metadata file, I made changes to it
+!data/movies_metadata.csv
