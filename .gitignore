@@ -5,3 +5,4 @@ data/*.csv
 
 # Don't ignore the metadata file, I made changes to it
 !data/movies_metadata.csv
+!data/actors.csv
