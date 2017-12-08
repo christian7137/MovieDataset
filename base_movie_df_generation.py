@@ -46,7 +46,7 @@ def get_values(data_str):
         else:
             return None
 			
-print("Cleaning up JSON objects . . . may take a while")
+print("Cleaning up JSON objects . . . may take a while\n")
 movie_df[['genres']] = movie_df[['genres']].applymap(get_values)
 movie_df[['production_companies', 'production_countries']] = movie_df[['production_companies', 'production_countries']].applymap(get_values)
 movie_df[['spoken_languages', 'keywords']] = movie_df[['spoken_languages', 'keywords']].applymap(get_values)
@@ -93,8 +93,8 @@ movie_df['budget'] = movie_df['budget'].apply(lambda x: x if (x > 999) else x*10
 
 # Check for NaNs. None, that's good.
 print("NaNs in movie_df?", movie_df.isnull().any().any())
-print(movie_df.describe())
-print("\n\n")
+#print(movie_df.describe())
+print("\n")
 
 # Modified from https://zeevgilovitz.com/detecting-dominant-colours-in-python
 def compare(title, image, color_tuple):
@@ -123,8 +123,7 @@ def get_most_freq_c(url):
     color = most_frequent_color(image)
     return color[1]
 
-print("Getting the most frequent color in all posters . . .")
-print("This takes a long time too.")
+print("Getting the most frequent color in all posters . . . this also takes a long time")
 movie_df['most_freq_color'] = movie_df['poster_path'].apply(get_most_freq_c)
 # Takes a long time to run.
 print("\n")
@@ -143,6 +142,8 @@ movie_df['red'] = movie_df['red'].astype(np.int64)
 movie_df['green'] = movie_df['green'].astype(np.int64)
 movie_df['blue'] = movie_df['blue'].astype(np.int64)
 
+
+print("Encoding features . . .")
 ## ONE HOT ENCODE GENRES ##
 test = pd.get_dummies(movie_df['genres'].apply(pd.Series).stack()).sum(level=0)
 dropping = []
@@ -204,6 +205,13 @@ for index, row in movie_df.iterrows():
 #print(movie_df.shape)
 # 11 movies dropped that had no genres.
 
+# Clean up weird non-binary values in binary features
+for col in movie_df.columns[20:]:
+    movie_df[col].fillna(0, inplace=True)
+    movie_df.loc[movie_df[col] > 1, col] = 1
+
+print(". . . done")
+	
 ### DEFINE FUNCTIONS ###
 
 def makeCSV(df, filename):
