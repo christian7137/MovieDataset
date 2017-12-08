@@ -206,7 +206,7 @@ for index, row in movie_df.iterrows():
 # 11 movies dropped that had no genres.
 
 # Clean up weird non-binary values in binary features
-for col in movie_df.columns[20:]:
+for col in movie_df.columns[21:]:
     movie_df[col].fillna(0, inplace=True)
     movie_df.loc[movie_df[col] > 1, col] = 1
 
