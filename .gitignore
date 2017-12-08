@@ -1,9 +1,10 @@
 # Ignore data files since they're so large.
-# Probably just ignore a data directory
-data/*.csv
 .ipynb_checkpoints
 
 # Don't ignore the metadata file, I made changes to it
-!data/movies_metadata.csv
-!data/actors.csv
-!data/colors.csv
+data/credits.csv
+data/ratings.csv
+data/ratings_small.csv
+data/links.csv
+data/links_small.csv
+data/keywords.csv
