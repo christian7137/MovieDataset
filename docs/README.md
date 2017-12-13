@@ -7,3 +7,13 @@
 * Christian Young
 
 ## Motivation
+Text
+
+## Preprocessing
+Text
+
+## Model
+Text  
+
+## Takeaways
+Text  
