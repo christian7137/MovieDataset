@@ -1,19 +1,17 @@
-# The Keys to Success in Film
-
 ## Team Members
 * James Creamer
 * Rebecca Jiang
 * Eric Su
 * Christian Young
 
-## Motivation
+# Motivation
 Text
 
-## Preprocessing
+# Preprocessing
 Text
 
-## Model
+# Model
 Text  
 
-## Takeaways
+# Takeaways
 Text  
