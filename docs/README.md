@@ -1,4 +1,9 @@
-# Testing 123
-## Subtitle
+# The Keys to Success in Film
 
-Text
+## Team Members
+* James Creamer
+* Rebecca Jiang
+* Eric Su
+* Christian Young
+
+## Motivation
